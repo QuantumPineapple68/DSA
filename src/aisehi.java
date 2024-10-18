@@ -1,7 +1,8 @@
 public class aisehi {
     public static void main(String[] args) {
-        char[] letters = {'c', 'f', 'j'};
+        int[] letters = {1,2,3,4,5,6,7,8,9};
         char target = 'c';
+        System.out.println(findIt(letters, target));
     }
 
     static int findIt(int[] arr, int target) {
@@ -43,7 +44,7 @@ public class aisehi {
         return -1;
     }
 
-    public int search(int[] nums, int target){
+    public int search1(int[] nums, int target){
         int peak = findPeakElement(nums);
         int firstTry = orderAgnosticBS(nums, target, 0, peak);
         if (firstTry != -1){
