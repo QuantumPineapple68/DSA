@@ -1,6 +1,4 @@
-import java.lang.annotation.Target;
-
-public class Main {
+public class Searching {
     public static void main(String[] args) {
 
         int[] arr = { -4, -3, -2 ,0 ,1, 4 , 5, 6, 9 ,13, 16, 34, 45, 55};

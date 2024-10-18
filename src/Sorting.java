@@ -1,8 +1,6 @@
-import java.util.*;
-
 import static java.util.Collections.sort;
 
-public class CharVowols {
+public class Sorting {
     public static void main(String[] args) {
         int[] arr = {1,2,0};
         System.out.println((cyclicSort(arr)));
@@ -44,19 +42,19 @@ public class CharVowols {
         return arr;
     }
 
-//    static int[] cyclicSort(int[] arr){
-//        int i=0;
-//        while(i<arr.length){
-//            int correct = arr[i] -1;
-//            if (arr[i] != arr[correct]){
-//                swap(arr, i , correct);
-//            }
-//            else{
-//                i++;
-//            }
-//        }
-//        return arr;
-//    }
+    static int[] cyclicSort1(int[] arr){
+        int i=0;
+        while(i<arr.length){
+            int correct = arr[i] -1;
+            if (arr[i] != arr[correct]){
+                swap(arr, i , correct);
+            }
+            else{
+                i++;
+            }
+        }
+        return arr;
+    }
 
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[j];
