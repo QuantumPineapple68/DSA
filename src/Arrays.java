@@ -1,8 +1,10 @@
+import java.sql.SQLOutput;
+
 public class Arrays {
     public static void main(String[] args) {
         int[] letters = {1,2,3,4,5,6,7,8,9};
         char target = 'c';
-        System.out.println(findIt(letters, target));
+        System.out.println(findIt(letters, target));;
     }
 
     static int findIt(int[] arr, int target) {
@@ -159,7 +161,12 @@ public class Arrays {
         return -1;
     }
 
-
+    class toString{
+        public static void main(String[] args){
+            char[] Array = {'a', 'b', 'c', 'd', 'e', 'f'};
+            System.out.println(java.util.Arrays.toString(Array));
+        }
+    }
 
 }
 
