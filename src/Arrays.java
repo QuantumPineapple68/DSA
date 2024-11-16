@@ -161,13 +161,6 @@ public class Arrays {
         return -1;
     }
 
-    class toString{
-        public static void main(String[] args){
-            char[] Array = {'a', 'b', 'c', 'd', 'e', 'f'};
-            System.out.println(java.util.Arrays.toString(Array));
-        }
-    }
-
 }
 
 

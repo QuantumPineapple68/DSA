@@ -1,11 +1,52 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Recursion {
     public static void main(String[] args) {
-        int[] arr = {18,2,4,12,45,18,55,19};
-        System.out.println(linearSearchList(arr,18));
+        int[] arr = {55, 32, 14, 62, 7, 89, 2};
+        System.out.println(Arrays.toString(bubbleSort(arr)));
     }
+
+
+    static void number1 (int n){
+        System.out.println(n);
+        number2(2);
+    }
+
+    static void number2(int n) {
+        System.out.println(n);
+        number3(3);
+    }
+
+    static void number3 (int n){
+        System.out.println(n);
+    }
+
+    static void number (int n){
+        if (n>3){
+            return;
+        }
+        System.out.println(n);
+        number(n+1);
+    }
+
+
+
+    static int search(int[] arr, int target, int s, int e) {
+        if (s > e) {
+            return -1;
+        }
+        int m = s + (e - s) / 2;
+        if (arr[m] == target) {
+            return m;
+        }
+        if (target < arr[m]) {
+            return search(arr, target, s, m - 1);
+        }
+        return search(arr, target, m + 1, e);
+    }
+
 
 
     static int fbs(int n){
@@ -18,13 +59,13 @@ public class Recursion {
 
 
 
-    static void printit (int num , int fact){
+    static void getFact (int num , int fact){
         if (num==0){
             System.out.println(fact);
-            return;
+            return; 
         }
         fact = fact*num;
-        printit(num-1,fact);
+        getFact(num-1,fact);
     }
 
 
@@ -116,4 +157,25 @@ public class Recursion {
         return helperForLinearSearchList(arr,target,index+1,list);
     }
 
+
+    static int[] bubbleSort (int[] arr){
+        int index =0;
+        int count =0;
+        return helperForBubbleSort(arr,index,count);
+    }
+
+    private static int[] helperForBubbleSort(int[] arr, int index,int count) {
+        if (index == arr.length && count ==arr.length){
+            return arr;
+        }
+        if (index == arr.length){
+            return helperForBubbleSort(arr,0,count+1);
+        }
+        if (index != arr.length-1 && arr[index]>arr[index+1]){
+            int temp = arr[index];
+            arr[index]=arr[index+1];
+            arr[index+1]= temp;
+        }
+        return helperForBubbleSort(arr,index+1,count);
+    }
 }
