@@ -178,4 +178,22 @@ public class Recursion {
         }
         return helperForBubbleSort(arr,index+1,count);
     }
+
+
+    static  int[] selectionSort (int[] arr){
+        int i = 0;
+        return helperForSelectionSort(arr,i);
+    }
+
+    private static int[] helperForSelectionSort(int[] arr, int i) {
+        int last = arr.length-1-i;
+        int maxIndex = getMaxForSelectionHelper(arr,0,last);
+        int temp = arr[maxIndex];
+        arr[maxIndex]=arr[last];
+        arr[last]=temp;
+    }
+
+    private static int getMaxForSelectionHelper(int[] arr, int i, int last) {
+
+    }
 }
