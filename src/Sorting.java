@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static java.util.Collections.sort;
 
 public class Sorting {
     public static void main(String[] args) {
-        int[] arr = {1,2,0};
-        System.out.println((cyclicSort(arr)));
+        int[] arr = {1,2,0,6,3,4};
+        System.out.println((Arrays.toString(mergeSort(arr))));
     }
 
 
@@ -91,4 +94,70 @@ public class Sorting {
             }
         }
     }
+
+    static int[] mergeSort(int[] arr){
+        if (arr.length==1){
+            return arr;
+        }
+        int mid = arr.length/2;
+
+        int[] first = mergeSort(Arrays.copyOfRange(arr,0,mid));
+        int[] second = mergeSort(Arrays.copyOfRange(arr,mid,arr.length));
+
+        return merge(first,second);
+    }
+
+    private static int[] merge(int[] first, int[] second) {
+        int[] mix = new int[first.length + second.length];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while (i < first.length && j < second.length) {
+            if (first[i] < second[j]) {
+                mix[k] = first[i];
+                i++;
+            } else {
+                mix[k] = second[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < first.length) {
+            mix[k] = first[i];
+            i++;
+            k++;
+        }
+
+        while (j < second.length) {
+            mix[k] = second[j];
+            j++;
+            k++;
+        }
+        return mix;
+    }
+
+    String removeA(String noa){
+        String ans="";
+        int i=0;
+        char[] noaC= noa.toCharArray();
+        helperRemoveA(noaC,ans,i);
+        return ans;
+    }
+    private static void helperRemoveA(char[] noa, String ans, int i) {
+        if (i == noa.length) {
+            return;
+        }
+        if (i == 'a') {
+            helperRemoveA(noa, ans, i + 1);
+        }
+        else {
+
+            helperRemoveA(noa,ans,i+1);
+        }
+    }
+
+
 }
