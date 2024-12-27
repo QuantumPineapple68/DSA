@@ -3,29 +3,22 @@ package Strings;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Subset {
+public class Questions {
     public static void main(String[] args) {
-        System.out.println(letterCombinations("23"));
+        System.out.println(diceRet("",4));
     }
 
-
-
-    static List<List<Integer>> subset (int[] arr){
-        List<List<Integer>> outer = new ArrayList<>();
-
-        outer.add(new ArrayList<>());
-
-        for (int num : arr){
-            int n = outer.size();
-            for (int i = 0; i < n; i++) {
-                ArrayList<Integer> inner = new ArrayList<>(outer.get(i));
-                inner.add(num);
-                outer.add(inner);
-            }
+    static ArrayList<String> diceRet(String p, int target) {
+        if (target == 0) {
+            ArrayList<String> list = new ArrayList<>();
+            list.add(p);
+            return list;
         }
-
-
-        return outer;
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 1; i <= 6 && i <= target; i++) {
+            list.addAll(diceRet(p + i, target - i));
+        }
+        return list;
     }
 
     static public List<String> letterCombinations(String digits){
