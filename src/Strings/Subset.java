@@ -5,9 +5,10 @@ import java.util.List;
 
 public class Subset {
     public static void main(String[] args) {
-        System.out.println(letterCombinations("23"));
+        int[] arr = {1,2,3};
+        System.out.println(subset(arr));
+//        System.out.println(letterCombinations("23"));
     }
-
 
 
     static List<List<Integer>> subset (int[] arr){
@@ -23,8 +24,6 @@ public class Subset {
                 outer.add(inner);
             }
         }
-
-
         return outer;
     }
 
