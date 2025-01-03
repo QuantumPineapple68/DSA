@@ -11,25 +11,26 @@ public class Maze {
                 {true,false,true},
                 {true,true,true}
         };
+//        mazeRetListObstacles("",board,0,0);
         mazeRetListObstacles("",board,0,0);
     }
 
     static void maze(String p, int a, int b){
-        if (a==1 && b==1){
+        if (a==2 && b==2){
             System.out.println(p);
             return;
         }
 
-        if (a>1) {
-            maze(p + 'D', a - 1, b);
+        if (a<2) {
+            maze(p+'D',a+1,b);
         }
-        if (b>1){
-        maze(p+'R',a,b-1);
+        if (b<2){
+            maze(p+'R',a,b+1);
         }
     }
 
     static ArrayList<String> mazeRetList(String p, int a, int b){
-        if (a==1 && b==1){
+        if (a==2 && b==2){
             ArrayList<String> list = new ArrayList<>();
             list.add(p);
             return list;
@@ -37,18 +38,18 @@ public class Maze {
 
         ArrayList<String> list = new ArrayList<>();
 
-        if (a>1) {
-            list.addAll(mazeRetList(p + 'D', a - 1, b));
+        if (a<2) {
+            list.addAll(mazeRetList(p + 'D', a+1, b));
         }
-        if (b>1){
-            list.addAll(mazeRetList(p+'R',a,b-1));
+        if (b<2){
+            list.addAll(mazeRetList(p+'R',a,b+1));
         }
         return list;
 
     }
 
     static ArrayList<String> mazeRetListDiagonal(String p, int a, int b){
-        if (a==1 && b==1){
+        if (a==2 && b==2){
             ArrayList<String> list = new ArrayList<>();
             list.add(p);
             return list;
@@ -56,21 +57,21 @@ public class Maze {
 
         ArrayList<String> list = new ArrayList<>();
 
-        if (a>1) {
-            list.addAll(mazeRetListDiagonal(p + 'D', a - 1, b)); // L = left
+        if (a<2) {
+            list.addAll(mazeRetListDiagonal(p+'D', a+1, b)); // L = left
         }
-        if (b>1){
-            list.addAll(mazeRetListDiagonal(p+'R',a,b-1)); // R = right
+        if (b<2){
+            list.addAll(mazeRetListDiagonal(p+'R',a,b+1)); // R = right
         }
-        if (a>1 && b>1){
-            list.addAll(mazeRetListDiagonal(p+'d',a-1,b-1)); // d = diagonal
+        if (a<2 && b<2){
+            list.addAll(mazeRetListDiagonal(p+'d',a+1,b+1)); // d = diagonal
         }
 
         return list;
 
     }
 
-    // If in the maze of 3x3, if we have obstacle at 2,2 (boolean matrix)
+    // If in the maze of 3x3, if we have obstacle at 2,2 (boolean matrix) [considering cell counting starts as 3,2,1]
     static ArrayList<String> mazeRetListObstacles(String p, int a, int b){
         if (a==1 && b==1){
             ArrayList<String> list = new ArrayList<>();
