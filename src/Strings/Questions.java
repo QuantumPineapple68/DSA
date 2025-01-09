@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Questions {
     public static void main(String[] args) {
-        System.out.println(diceRet("",4));
+        int[] arr = {-2,1,-3,4,-1,2,1,-5,4};
+        System.out.println(maxSubArray(arr));
     }
 
     static ArrayList<String> diceRet(String p, int target) {
@@ -41,5 +42,16 @@ public class Questions {
             list.addAll(helperLetterCombinations(p+ch, up.substring(1)));
         }
         return list;
+    }
+
+        static public int maxSubArray(int[] nums) {
+        int currentSum = nums[0];
+        int maxSum = nums[0];
+
+        for (int num : nums){
+            currentSum = Math.max(num, currentSum + num);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
     }
 }

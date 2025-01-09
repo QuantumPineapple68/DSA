@@ -11,7 +11,7 @@ public class Maze {
                 {true,false,true},
                 {true,true,true}
         };
-//        mazeRetListObstacles("",board,0,0);
+//        System.out.println(mazeRetListDiagonal("",0,0));
         mazeRetListObstacles("",board,0,0);
     }
 
@@ -66,9 +66,7 @@ public class Maze {
         if (a<2 && b<2){
             list.addAll(mazeRetListDiagonal(p+'d',a+1,b+1)); // d = diagonal
         }
-
         return list;
-
     }
 
     // If in the maze of 3x3, if we have obstacle at 2,2 (boolean matrix) [considering cell counting starts as 3,2,1]
