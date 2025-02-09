@@ -15,9 +15,9 @@ public class Questions {
 //            System.out.print(group);
 //        }
 
-        int[] arr = {1,3,4,5,0,0,0};
-        int[] arr2 = {4,6,7};
-        merge(arr,4,arr2,3);
+        int[] arr = {1, 3, 4, 5, 0, 0, 0};
+        int[] arr2 = {4, 6, 7};
+        merge(arr, 4, arr2, 3);
 
     }
 
@@ -34,9 +34,9 @@ public class Questions {
         return list;
     }
 
-    static public List<String> letterCombinations(String digits){
+    static public List<String> letterCombinations(String digits) {
         String p = "";
-        return helperLetterCombinations(p,digits);
+        return helperLetterCombinations(p, digits);
     }
 
     private static List<String> helperLetterCombinations(String p, String up) {
@@ -48,19 +48,19 @@ public class Questions {
 
         int digit = up.charAt(0) - '0'; // converts '2' into 2
 
-        ArrayList <String> list = new ArrayList<>();
-        for (int i = (digit-1)*3; i < digit*3; i++) {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = (digit - 1) * 3; i < digit * 3; i++) {
             char ch = (char) ('a' + i);
-            list.addAll(helperLetterCombinations(p+ch, up.substring(1)));
+            list.addAll(helperLetterCombinations(p + ch, up.substring(1)));
         }
         return list;
     }
 
-        static public int maxSubArray(int[] nums) {
+    static public int maxSubArray(int[] nums) {
         int currentSum = nums[0];
         int maxSum = nums[0];
 
-        for (int num : nums){
+        for (int num : nums) {
             currentSum = Math.max(num, currentSum + num);
             maxSum = Math.max(maxSum, currentSum);
         }
@@ -69,8 +69,8 @@ public class Questions {
 
     public static boolean containsDuplicate(int[] nums) {
         Arrays.sort(nums);
-        for (int i = 0; i < nums.length-1; i++) {
-            if (nums[i] == nums[i+1]){
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
                 return true;
             }
         }
@@ -94,25 +94,25 @@ public class Questions {
 
     public static int[] repeatedNumber(final int[] A) {
         int missing = 0;
-        int repeated =0;
+        int repeated = 0;
         Arrays.sort(A);
         int max = A[0];
-        int min = A[A.length-1];
+        int min = A[A.length - 1];
 
-        for (int i = 0; i < A.length-1; i++) {
-            if (A[i]==A[i+1]){
-                repeated=A[i];
+        for (int i = 0; i < A.length - 1; i++) {
+            if (A[i] == A[i + 1]) {
+                repeated = A[i];
             }
         }
 
         for (int i = min; i < max; i++) {
-            int index = Arrays.binarySearch(A,A[i]);
-            if (index == -1){
+            int index = Arrays.binarySearch(A, A[i]);
+            if (index == -1) {
                 missing = A[i];
             }
         }
 
-        return new int[] {repeated,missing};
+        return new int[]{repeated, missing};
     }
 
     public static int removeDuplicates(int[] nums) {
@@ -132,10 +132,10 @@ public class Questions {
     }
 
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int num2Count=0;
-        for (int i = m; i < m+n; i++) {
-            if (nums1[i]==0){
-                nums1[i]=nums2[num2Count];
+        int num2Count = 0;
+        for (int i = m; i < m + n; i++) {
+            if (nums1[i] == 0) {
+                nums1[i] = nums2[num2Count];
                 num2Count++;
             }
         }
@@ -143,11 +143,12 @@ public class Questions {
         System.out.println(Arrays.toString(nums1));
     }
 
-    public static List<List<Integer>> permute(int[] nums) {
-        if (nums.length==0){
-            List<List<Integer>> list = new ArrayList<>();
-            list.addAll();
-            return list;
-    }
-
+//    public static List<List<Integer>> permute(int[] nums) {
+//        if (nums.length == 0) {
+//            List<List<Integer>> list = new ArrayList<>();
+//            list.addAll();
+//            return list;
+//        }
+//
+//    }
 }
