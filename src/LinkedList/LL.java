@@ -109,7 +109,7 @@ public class LL {
             listAns.insertLast(h1.value);
             h1=h1.next;
         }
-        while (h1 != null){
+        while (h2 != null){
             listAns.insertLast(h2.value);
             h2=h2.next;
         }

@@ -26,6 +26,27 @@ public class Queations {
         return 0;
     }
 
+    public Node cycleStart(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast!= null && fast.next!= null){
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (slow == fast){
+                //Cycle present, now formulae
+                slow = head;
+                while (slow != fast){
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow;
+            }
+        }
+        return null;
+    }
+
     public Node detectCycle(Node head) {
         int lenght = 0;
 
@@ -138,6 +159,103 @@ public class Queations {
 
             return dummy.next;
         }
+
+        public Node reverseList(Node head) {
+            if (head == null){
+                return head;
+            }
+
+            Node prev = null;
+            Node curr = head;
+            Node next = curr.next;
+
+            while (curr != null){
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+                if (next != null) {
+                    next = next.next;
+                }
+            }
+            return prev;
+        }
+
+        public Node reverseBetween(Node head, int left, int right) {
+            if (left == right){
+                return head;
+            }
+
+            Node curr = head;
+            Node prev = null;
+            for (int i = 0; curr != null && i < left-1; i++) {
+                prev = curr;
+                curr = curr.next;
+            }
+
+            Node last = prev;
+            Node newEnd = curr;
+
+            Node next = curr.next;
+            for (int i = 0; curr != null && i < right - left + 1; i++) {
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+                if (next != null) {
+                    next = next.next;
+                }
+            }
+
+            if (last != null){
+                last.next = prev;
+            }
+            else {
+                head = prev;
+            }
+
+            newEnd.next = curr;
+            return head;
+        }
+
+        public boolean isPalindrome(Node head) {
+            Node mid = middleNode(head);
+            Node headSecond = reverseList(mid);
+            Node rereverseHead = headSecond;
+
+            while (head != null && headSecond != null){
+                if (head.value != headSecond.value){
+                    break;
+                }
+                head = head.next;
+                headSecond = headSecond.next;
+            }
+            reverseList(rereverseHead);
+
+            return head == null || headSecond == null;
+        }
+
+        public void reorderList(Node head) {
+            if (head == null || head.next == null){
+                return;
+            }
+            Node mid = middleNode(head);
+            Node hf = head;
+            Node hs = reverseList(mid);
+
+            while (hf != null && hs != null){
+                Node temp = hf.next;
+                hf.next = hs;
+                hf = temp;
+
+                temp = hs.next;
+                hs.next = hf;
+                hs = temp;
+            }
+
+            if (hf != null){
+                hf.next = null;
+            }
+        }
+
     }
 
 }
