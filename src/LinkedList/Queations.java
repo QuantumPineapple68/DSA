@@ -256,6 +256,85 @@ public class Queations {
             }
         }
 
+        public Node reverseKGroup(Node head, int k) {
+            if (k <= 1 || head == null){
+                return head;
+            }
+
+            Node curr = head;
+            Node prev = null;
+
+            while (true) {
+                Node check = curr;
+                int count = 0;
+                while (check != null && count < k) {
+                    check = check.next;
+                    count++;
+                }
+                if (count < k) { // Not enough nodes left, so exit without reversing.
+                    break;
+                }
+                Node last = prev;
+                Node newEnd = curr;
+                Node next = curr.next;
+                for (int i = 0; curr != null && i < k; i++) {
+                    curr.next = prev;
+                    prev = curr;
+                    curr = next;
+                    if (next != null) {
+                        next = next.next;
+                    }
+                    else {
+                        break;
+                    }
+                }
+
+                if (last != null) {
+                    last.next = prev;
+                } else {
+                    head = prev;
+                }
+
+                newEnd.next = curr;
+
+                if (curr == null){
+                    break;
+                }
+                prev = newEnd;
+            }
+            return head;
+        }
+
+        public Node rotateRight(Node head, int k) {
+            if (head == null || k == 0) {
+                return head;
+            }
+
+            int length = 1;
+            Node curr = head;
+            while (curr.next != null) {
+                curr = curr.next;
+                length++;
+            }
+
+            k = k % length; // Formulae (See example 2)
+            if (k == 0) return head;
+
+            for (int i = 0; i < k; i++) {
+                Node prev = head;
+                curr = head.next;
+                while (curr.next != null) {
+                    prev = curr;
+                    curr = curr.next;
+                }
+                curr.next = head;
+                prev.next = null;
+                head = curr;
+            }
+
+            return head;
+        }
+
     }
 
 }
