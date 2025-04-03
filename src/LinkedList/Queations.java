@@ -1,8 +1,12 @@
 package LinkedList;
 
+import java.util.Arrays;
+
 public class Queations {
     public static void main(String[] args) {
-        System.out.println(isHappy(19));
+        int[] arr = {1,45,3,2,4,65,7};
+        selectiont(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     public int lengthCycle(Node head) {
@@ -335,6 +339,43 @@ public class Queations {
             return head;
         }
 
+    }
+
+
+
+        public static void selection (int[] arr){
+            for(int i=1; i<arr.length-i-1; i++){
+                int min = getMin(arr);
+                if(min < arr[i]){
+                    int temp = arr[i];
+                    arr[i]=arr[min];
+                    arr[min]=temp;
+                }
+            }
+        }
+
+        public static int getMin (int[] arr){
+            int min = arr[0];
+            for(int i=0; i<arr.length-1; i++){
+                if(arr[i]>arr[i+1]){
+                    min = i;
+                }
+            }
+            return min;
+        }
+
+    public static void selectiont (int[] arr){
+        int first = 0;
+        int last = arr.length;
+
+        for (int i = first; i < last -1-i; i++) {
+            int min = getMin(arr);
+            if(min > arr[i]){
+                int temp = arr[i];
+                arr[i]=arr[min];
+                arr[min]=temp;
+            }
+        }
     }
 
 }
