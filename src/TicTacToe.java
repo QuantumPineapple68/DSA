@@ -26,7 +26,7 @@ public class TicTacToe {
                 System.out.println(empty);
             }
             else{
-                System.out.println("Invalid Move, Try again!");
+                System.out.println("Invalid Move, Try again!"); 
                 continue;
             }
             hasWon = didAnyOneWon(board, player);
