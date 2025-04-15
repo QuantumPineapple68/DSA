@@ -9,9 +9,21 @@ public class main {
 //        binaryTree.populate(scanner);
 //        binaryTree.prettyDisplay();
 
-        BST bst = new BST();
-        int[] nums = {43,23,22,65,23,89,21,12,64,54,67,12,66};
-        bst.populate(nums);
-        bst.display();
+//        BST bst = new BST();
+//        int[] nums = {43,23,22,65,23,89,21,12,64,54,67,12,66};
+//        bst.populate(nums);
+//        bst.display();
+
+//        AVL tree = new AVL();
+//        for (int i = 0; i < 1000; i++) {
+//            tree.insert(i);
+//        }
+//        System.out.println(tree.height());
+
+        int[] arr = {3, 8, 6, 7, -2, -8, 4, 9};
+        SegmentTree tree = new SegmentTree(arr);
+        // tree.display();
+
+        System.out.println(tree.query(1, 6));
     }
 }

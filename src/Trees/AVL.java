@@ -1,7 +1,7 @@
 package Trees;
 
-public class BST {
-    public BST(){}
+public class AVL {
+    public AVL(){}
     public class Node{
         private int value;
         private int height;
@@ -25,6 +25,10 @@ public class BST {
         return node.height;
     }
 
+    public int height(){
+        return height(root);
+    }
+
     public boolean isEmpty(){
         return root==null;
     }
@@ -44,7 +48,7 @@ public class BST {
         display(node.right, "Right child of "+ node.getValue() + " : ");
     }
 
-    private void insert(int value){
+    public void insert(int value){
         root = insert(value, root);
     }
     private Node insert(int value, Node node){
@@ -60,7 +64,61 @@ public class BST {
             node.right = insert(value, node.right);
         }
         node.height = Math.max(height(node.left),height(node.right)) + 1;
+        return roatate(node);
+    }
+
+    private Node roatate(Node node) {
+        if (height(node.left) - height(node.right) > 1){
+            //left heavy tree
+            if (height(node.left.left)- height(node.left.right) > 0){
+                //left-left heavy
+                return rightRotate(node);
+            }
+            if (height(node.left.left)- height(node.left.right) < 0){
+                //left-right case
+                node.left = leftRotate(node.left);
+                return rightRotate(node);
+            }
+        }
+        if (height(node.left) - height(node.right) < -1){
+            //right heavy tree
+            if (height(node.right.left)- height(node.right.right) < 0){
+                //right-right heavy
+                return leftRotate(node);
+            }
+            if (height(node.right.left)- height(node.right.right) >  0){
+                //right-left case
+                node.right = rightRotate(node.right);
+                return leftRotate(node);
+            }
+        }
         return node;
+    }
+
+    public Node rightRotate(Node p) {
+        Node c = p.left;
+        Node t = c.right;
+
+        c.right = p;
+        p.left = t;
+
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        c.height = Math.max(height(c.left), height(c.right) + 1);
+
+        return c;
+    }
+
+    public Node leftRotate(Node c) {
+        Node p = c.right;
+        Node t = p.left;
+
+        p.left = c;
+        c.right = t;
+
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        c.height = Math.max(height(c.left), height(c.right) + 1);
+
+        return p;
     }
 
     public void populate(int[] nums){
