@@ -56,7 +56,7 @@ public class Arrays {
             return orderAgnosticBS(nums, target, peak+1, nums.length-1);
         }
 
-    }
+    } // test comment for git
 
     public static int findPeakElement(int[] arr) {
         int start = 0;
