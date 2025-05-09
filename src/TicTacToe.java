@@ -38,7 +38,9 @@ public class TicTacToe {
                 player = player == 'X' ? 'O' : 'X';
             }
         }
-        System.out.println("Uh Oh .. Seems like it's a draw!!");
+        if(!hasWon) {
+            System.out.println("Uh Oh .. Seems like it's a draw!!");
+        }
     }
 
     private static void printBoard(char[][] board) {
