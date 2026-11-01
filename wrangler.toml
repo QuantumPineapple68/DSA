@@ -1,0 +1,14 @@
+name = "dsa-nachiket-dev"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+workers_dev = true
+
+# Bind the subdomain dsa.nachiket.dev directly to this Worker.
+# custom_domain = true makes Cloudflare create the DNS record + TLS cert automatically.
+routes = [
+  { pattern = "dsa.nachiket.dev", custom_domain = true }
+]
+
+[assets]
+directory = "."
+binding = "ASSETS"

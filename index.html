@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA All-in-One Interview Playbook (Java) - Interactive Visualizer & Revision</title>
+  <meta name="description" content="Interactive revision website with animated step-by-step visualizers for every DSA pattern and interview question. Built with exact fidelity to the comprehensive Java playbook.">
+  
+  <!-- Preconnect to fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Offline Vendor Stylesheets -->
+  <link rel="stylesheet" href="vendor/github-dark.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Sticky Top Header -->
+  <header id="app-header">
+    <div class="header-brand">
+      <button class="icon-btn" id="mobile-sidebar-toggle" style="display:none;" title="Toggle Sidebar">☰</button>
+      <div class="header-logo-icon">⚡</div>
+      <div class="header-title-box">
+        <h1>DSA Interview Playbook</h1>
+        <div class="subtitle">
+          <span>Java 8+ Production Edition</span>
+          <span class="live-badge">54 Interactive Visualizers</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Trigger Button -->
+      <button class="search-trigger-btn" id="search-trigger-btn">
+        <span>🔍 Search patterns...</span>
+        <span class="search-shortcut-key">Ctrl K</span>
+      </button>
+
+      <!-- Mastery Progress Pill -->
+      <div class="mastery-pill" title="Your revision progress across all patterns and hybrid problems">
+        <span>Mastery:</span>
+        <div class="mastery-progress-bar">
+          <div class="mastery-progress-fill"></div>
+        </div>
+        <span class="mastery-progress-text">0 / 53 (0%)</span>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <button class="filter-toggle-btn" id="visualizers-only-btn" title="Focus directly on interactive animations">
+        <span>▶</span> Animations Focus
+      </button>
+
+      <!-- Theme Switcher -->
+      <button class="icon-btn" id="theme-toggle-btn" title="Toggle Dark / Light Theme">☀️</button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div id="app-layout">
+    <!-- Left Navigation Sidebar -->
+    <aside id="app-sidebar">
+      <!-- Fixed Sidebar Header: Search + Category Tiles (Never hidden or scrolled away) -->
+      <div class="sidebar-header-fixed">
+        <div class="sidebar-search-box">
+          <div class="sidebar-search-input-wrap">
+            <span class="sidebar-search-icon">🔍</span>
+            <input type="text" class="sidebar-search-input" id="sidebar-search-input" placeholder="Quick filter patterns..." />
+            <button class="sidebar-search-clear" id="sidebar-search-clear" title="Clear search">✕</button>
+          </div>
+        </div>
+
+        <div class="sidebar-filters">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="patterns">Patterns (22)</button>
+          <button class="filter-chip" data-filter="hybrids">Hybrids (31)</button>
+          <button class="filter-chip" data-filter="visualizers">Visualizers (54)</button>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav-tree">
+        <!-- Dynamically generated from headings in app.js -->
+        <div style="padding: 20px; color: var(--text-muted); font-size: 0.85rem;">Loading navigation...</div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Reader -->
+    <main id="main-content">
+      <!-- Dynamically rendered markdown content with verbatim fidelity -->
+      <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+        <p>Loading DSA Playbook &amp; initializing interactive visualizers...</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Search Modal Overlay -->
+  <div class="search-modal-backdrop" id="search-modal">
+    <div class="search-modal-box">
+      <div class="search-modal-header">
+        <span style="font-size: 1.2rem; color: var(--text-muted);">🔍</span>
+        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search patterns, algorithms, LeetCode problems..." />
+        <span class="search-shortcut-key">ESC</span>
+      </div>
+      <div class="search-modal-results" id="search-modal-results"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-msg" id="toast-msg"></div>
+
+  <!-- Scripts -->
+  <script src="vendor/marked.min.js"></script>
+  <script src="vendor/highlight.min.js"></script>
+  <script src="vendor/highlight-java.min.js"></script>
+  
+  <!-- Verbatim Markdown Content (Ensures 100% offline & file:// protocol compatibility) -->
+  <script src="dsa-content.js"></script>
+  
+  <!-- Interactive Visualizer Engine -->
+  <script src="visualizer-engine.js"></script>
+  
+  <!-- Pattern & Hybrid Problem Visualizers (54 Interactive DSA Simulations) -->
+  <script src="visualizers-patterns.js"></script>
+  <script src="visualizers-hybrids.js"></script>
+  
+  <!-- Main Application Controller -->
+  <script src="app.js"></script>
+
+</body>
+</html>

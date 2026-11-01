@@ -1,3 +1,11 @@
+# ⚡ DSA Interview Playbook & Interactive Revision Website
+
+> 🚀 **Live Interactive Website:** **[https://dsa.nachiket.dev](https://dsa.nachiket.dev)**
+> 📖 **Comprehensive Markdown Playbook:** [`DSA_All_in_One_Interview_Playbook_Java.md`](DSA_All_in_One_Interview_Playbook_Java.md)
+> 🎬 **Interactive Features:** 54 step-by-step moving algorithm visualizers covering all patterns (P1–P22) and hybrid interview problems (H1–H31) with variable watches, playback controls, and revision tracking.
+
+---
+
 <h1 align="center">Hi 👋, I'm Nachiket</h1>
 <h3 align="center">This repo contains the code, when I was learning DSA. I've documented my entire software development journey in my Articles on HashNode.</h3>
 
